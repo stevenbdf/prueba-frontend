@@ -3,6 +3,9 @@ module.exports = {
         container: false,
     },
     theme: {
+        zIndex: {
+            '-1': '-1',
+        },
         screens: {
             'sm': '640px',
             'md': '768px',
@@ -23,6 +26,7 @@ module.exports = {
         },
         backgroundColor: theme => ({
             ...theme('colors'),
+            'yellow': '#FFF1BF',
             // Color regular
             'primary': '#0A2677',
             'secondary': '#9E9E9E',

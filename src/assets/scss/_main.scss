@@ -1,1 +1,51 @@
+@import url("https://fonts.cdnfonts.com/css/syne");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans");
 
+@font-face {
+    font-family: "Druk Text Wide";
+    src: url("//db.onlinewebfonts.com/t/3724259186746d86859fbb0fde0fa44a.woff2") format("woff2");
+}
+
+.noto-sans-font {
+    font-family: "Noto Sans", sans-serif;
+}
+
+.syne-font {
+    font-family: Syne;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.druk-font {
+    font-family: Druk Text Wide;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.title-size {
+    font-size: 2rem;
+}
+
+p {
+    font-family: "Noto Sans", sans-serif;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.text-yellow {
+    color: #ffd600;
+}
+
+#yellow-vector {
+    position: absolute;
+    width: 48%;
+    right: 0;
+    top: 0;
+}
+
+.dark-400 {
+    background-color: #69707a;
+}
+
+input:focus {
+    outline: none;
+}
