@@ -104,3 +104,41 @@ textarea:focus {
 #ketchup {
     right: 0;
 }
+
+@media (min-width: 1024px) {
+    .title-size {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .title-size {
+        font-size: 5rem;
+        line-height: 5.5rem;
+    }
+
+    p {
+        font-size: 1.7rem;
+    }
+}
+
+.drop-enter-active {
+    animation: dowm-in 0.5s;
+}
+.drop-leave-active {
+    animation: dowm-in 0.5s reverse;
+}
+@keyframes dowm-in {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.invert {
+    filter: invert(100%);
+}
