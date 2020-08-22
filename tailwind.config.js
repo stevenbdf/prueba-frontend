@@ -23,10 +23,13 @@ module.exports = {
             'proceso': '#BBDEFB',
             'white': '#FFFFFF',
             'black': '#363636',
+            'yellow': '#ffd600',
+            'gray': '#4a5568'
         },
         backgroundColor: theme => ({
             ...theme('colors'),
-            'yellow': '#FFF1BF',
+            'yellow-200': '#FFF1BF',
+            'yellow': '#ffd600',
             // Color regular
             'primary': '#0A2677',
             'secondary': '#9E9E9E',
@@ -50,7 +53,17 @@ module.exports = {
             'overlay': '#36363665',
             'card': '#ffffffd2',
             'youtube-overlay': '#0000001b',
-        })
+        }),
+        borderColor: theme => ({
+            ...theme('colors'),
+            default: theme('colors.gray.300', 'currentColor'),
+            'yellow': '#ffd600',
+        }),
+        extend: {
+            margin: {
+                '72': '18.5rem',
+            }
+        }
     },
     variants: {},
     plugins: []

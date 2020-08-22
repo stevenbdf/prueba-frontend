@@ -1,22 +1,84 @@
 <template>
   <div class="container">
-    <div id="navbar" class="flex lg:px-16 lg:py-10 xl:px-48 xl:py-10">
-      <a class="lg:mr-12 lg:text-2xl xl:mr-20 xl:text-4xl druk-font">Foodies</a>
-      <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
-        >Acerca de</a
+    <div class="z-50 h-32">
+      <div
+        id="navbar"
+        class="fixed mt-5 lg:-mt-4 xl:mt-0 w-full top-0 flex px-12 lg:px-16 lg:py-10 xl:px-48 xl:py-10 px-3 justify-between lg:justify-start"
       >
-      <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
-        >Restaurantes</a
-      >
-      <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font">Menú</a>
-      <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
-        >Contáctanos</a
-      >
+        <a class="text-xl lg:mr-12 lg:text-2xl xl:mr-20 xl:text-4xl druk-font"
+          >Foodies</a
+        >
+        <a
+          class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
+          >Acerca de</a
+        >
+        <a
+          class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
+          >Restaurantes</a
+        >
+        <a
+          class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
+          >Menú</a
+        >
+        <a
+          class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
+          >Contáctanos</a
+        >
+        <a
+          class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font lg:hidden"
+          @click="sidebar = true"
+          ><img class="inline right-arrow xl:w-6" src="@/assets/svg/menu.svg"
+        /></a>
+      </div>
+      <transition name="drop">
+        <!-- Validar en que ruta esta y cambiar de color -->
+        <div
+          v-if="sidebar"
+          class="fixed rounded-b-md w-full h-64 top-0 flex flex-wrap lg:px-16 lg:py-10 xl:px-48 xl:py-10 px-3 justify-between lg:justify-start"
+          :class="{
+            'bg-black text-white': $route.name === 'menu',
+            'bg-white text-black': $route.name === 'home'
+          }"
+        >
+          <div>
+            <a class="lg:mr-12 lg:text-2xl xl:mr-20 xl:text-4xl druk-font"
+              >Foodies</a
+            >
+          </div>
+          <div>
+            <a
+              class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
+              @click="sidebar = false"
+              >x</a
+            >
+          </div>
+          <div class="w-full">
+            <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
+              >Acerca de</a
+            >
+          </div>
+          <div class="w-full">
+            <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
+              >Restaurantes</a
+            >
+          </div>
+          <div class="w-full">
+            <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
+              >Menú</a
+            >
+          </div>
+          <div class="w-full">
+            <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
+              >Contáctanos</a
+            >
+          </div>
+        </div>
+      </transition>
     </div>
     <div class="content">
       <div
         id="home"
-        class="w-full flex flex-wrap lg:mb-32 xl:mb-64 lg:px-16 xl:px-48"
+        class="w-full flex flex-wrap px-16 mb-32 xl:mb-64 lg:px-16 xl:px-48 flex-col-reverse md:flex-row"
       >
         <img
           id="yellow-vector"
@@ -24,15 +86,18 @@
           src="@/assets/images/yellow_vector.svg"
           alt="vector"
         />
-        <div class="w-1/2">
+        <div class="md:w-1/2">
           <h1 class="druk-font title-size lg:mt-10 xl:mt-24">
-            Un nuevo sabor esta en la ciudad
+            Un nuevo sabor esta
+            <span class="block">
+              en la ciudad
+            </span>
           </h1>
-          <p class="lg:mt-2 xl:mt-3">
+          <p class="mt-2 text-2xl md:text-xl xl:text-2xl xl:mt-3">
             Estamos a punto de descubrir un mundo lleno de sabores y de
             emociones inigualables.
           </p>
-          <h3 class="syne-font lg:mt-10 xl:mt-12 xl:text-3xl">
+          <h3 class="syne-font mt-10 text-3xl md:text-2xl xl:mt-12 xl:text-3xl">
             Encuentranos
             <img
               class="inline right-arrow ml-4 xl:w-6"
@@ -40,16 +105,16 @@
             />
           </h3>
         </div>
-        <div class="w-1/2">
+        <div class="md:w-1/2">
           <img
-            class="lg:ml-12 xl:ml-32 xl:mt-24 w-10/12"
+            class="mb-40 mx-auto md:mb-0 md:ml-12 -mt-10 xl:ml-32 xl:mt-24 md:w-10/12"
             src="@/assets/images/hero_hamburger.png"
             alt="hamburger"
           />
         </div>
       </div>
-      <div id="about" class="w-full flex flex-wrap lg:mb-10 xl:mb-20">
-        <div class="w-1/2 relative">
+      <div id="about" class="w-full flex flex-wrap mb-24 lg:mb-10 xl:mb-20">
+        <div class="w-full lg:w-1/2 relative">
           <img
             class="w-full -z-1"
             src="@/assets/images/about.png"
@@ -57,13 +122,13 @@
           />
           <div class="text-block absolute right-0 bottom-0 mb-16">
             <h1
-              class="druk-font lg:text-4xl xl:text-6xl uppercase text-right text-white mr-8"
+              class="druk-font text-4xl xl:text-6xl uppercase text-right text-white mr-8"
             >
-              La comida es <span class="text-yellow">nuestro arte</span>
+              La comida es <span class="text-yellow block">nuestro arte</span>
             </h1>
           </div>
         </div>
-        <div class="w-1/2 relative">
+        <div class="w-full lg:w-1/2 relative">
           <img
             id="yellow-lines-vector"
             class="w-full absolute -z-1 lg:mt-20 xl:mt-24"
@@ -72,15 +137,17 @@
           />
           <h1
             class="syne-font
-          lg:ml-12 lg:mt-24
+          ml-12 mt-24
+          text-3xl md:text-2xl
           xl:ml-16 xl:text-3xl xl:mt-40"
           >
             ¿Quién es Foodies?
           </h1>
           <p
             class="
-          lg:text-sm lg:ml-12 lg:mt-6
-          xl:text-xl xl:ml-16 xl:mt-10 xl:mr-32"
+          text-2xl
+          lg:text-sm ml-12 mt-6
+          xl:text-2xl xl:ml-16 xl:mt-10 xl:mr-32"
           >
             Elit irure ad nulla id elit laborum nostrud mollit irure. Velit
             reprehenderit sunt nulla enim aliquip duis tempor est culpa fugiat
@@ -89,7 +156,8 @@
           </p>
           <h3
             class="syne-font
-          lg:ml-12 lg:mt-10
+          ml-12 mt-10
+          text-3xl md:text-2xl
           xl:ml-16 xl:mt-12 xl:text-3xl"
           >
             Contáctanos
@@ -100,9 +168,11 @@
           </h3>
         </div>
       </div>
-      <div id="locations" class="w-full flex flex-wrap lg:mb-10 xl:mb-20">
-        <div class="w-5/12">
-          <h1 class="druk-font lg:text-3xl xl:text-5xl mb-4 text-center">
+      <div id="locations" class="w-full flex flex-wrap mb-10 xl:mb-20">
+        <div class="lg:w-5/12">
+          <h1
+            class="druk-font ml-12 lg:ml-0 text-5xl md:text-3xl xl:text-5xl mb-4 lg:text-center"
+          >
             Estamos para ti
           </h1>
           <div class="w-full flex flex-wrap text-center">
@@ -186,55 +256,55 @@
 
               <input
                 type="text"
-                class="py-2 xl:py-4 w-3/5 xl:text-xl"
+                class="py-4 md:py-2 xl:py-4 w-3/5 text-xl md:text-base xl:text-xl"
                 placeholder="Buscar nombre o dirección"
               />
             </div>
-            <div class="w-full flex flex-wrap justify-end">
+            <div class="w-full flex flex-wrap justify-center lg:justify-end">
               <!-- Location cards -->
               <div
-                class="text-left mr-4 mt-3 py-2 pl-4 xl:pl-5 pr-24 xl:pr-64 bg-yellow"
+                class="text-left w-10/12 lg:w-auto mr-4 mt-3 py-2 pl-4 xl:pl-5 pr-24 xl:pr-64 bg-yellow-200"
               >
-                <h1 class="syne-font text-sm xl:text-2xl">
+                <h1 class="syne-font text-2xl md:text-sm xl:text-2xl">
                   Sucursal San Benito
                 </h1>
-                <h3 class="text-xs xl:text-lg">
+                <h3 class="text-lg md:text-xs xl:text-lg">
                   Abierto de 12:00 m.d. - 9:00 p.m.
                 </h3>
-                <h3 class="text-xs xl:text-lg">
+                <h3 class="text-lg md:text-xs xl:text-lg">
                   Calle la Reforma #543, Colonia San Benito
                 </h3>
               </div>
               <div
-                class="text-left mr-4 mt-3 py-2 pl-4 xl:pl-5 pr-24 xl:pr-64 rounded border border-black"
+                class="text-left w-10/12 lg:w-auto mr-4 mt-3 py-2 pl-4 xl:pl-5 pr-24 xl:pr-64 rounded border border-black"
               >
-                <h1 class="syne-font text-sm xl:text-2xl">
+                <h1 class="syne-font text-2xl md:text-sm xl:text-2xl">
                   Sucursal San Benito
                 </h1>
-                <h3 class="text-xs xl:text-lg">
+                <h3 class="text-lg md:text-xs xl:text-lg">
                   Abierto de 12:00 m.d. - 9:00 p.m.
                 </h3>
-                <h3 class="text-xs xl:text-lg">
+                <h3 class="text-lg md:text-xs xl:text-lg">
                   Calle la Reforma #543, Colonia San Benito
                 </h3>
               </div>
               <div
-                class="text-left mr-4 mt-3 py-2 pl-4 xl:pl-5 pr-24 xl:pr-64 rounded border border-black"
+                class="text-left w-10/12 lg:w-auto mr-4 mt-3 py-2 pl-4 xl:pl-5 pr-24 xl:pr-64 rounded border border-black"
               >
-                <h1 class="syne-font text-sm xl:text-2xl">
+                <h1 class="syne-font text-2xl md:text-sm xl:text-2xl">
                   Sucursal San Benito
                 </h1>
-                <h3 class="text-xs xl:text-lg">
+                <h3 class="text-lg md:text-xs xl:text-lg">
                   Abierto de 12:00 m.d. - 9:00 p.m.
                 </h3>
-                <h3 class="text-xs xl:text-lg">
+                <h3 class="text-lg md:text-xs xl:text-lg">
                   Calle la Reforma #543, Colonia San Benito
                 </h3>
               </div>
             </div>
           </div>
         </div>
-        <div class="w-7/12">
+        <div class="lg:w-7/12">
           <!-- Map -->
         </div>
       </div>
@@ -243,63 +313,63 @@
         class="w-full flex flex-wrap justify-center lg:mb-16 xl:mb-32"
       >
         <img
-          class="absolute -z-1 xl:w-2/12"
+          class="hidden md:block absolute -z-1 w-1/6 xl:w-2/12"
           style="left:0;"
           src="@/assets/svg/red-vector.svg"
           alt="vector"
         />
         <img
-          class="absolute mt-16 rotate180 xl:w-2/12"
+          class="hidden md:block absolute mt-16 w-1/6 rotate180 xl:w-2/12"
           src="@/assets/svg/red-vector.svg"
           alt="vector"
         />
         <img
           id="ketchup"
-          class="absolute w-4/12"
+          class="hidden lg:block absolute w-4/12"
           src="@/assets/images/testimonials_bg_ketchup.png"
           alt="hamburger"
         />
-        <carousel class="w-7/12 mt-48 xl:mt-64" perPage="1">
+        <carousel class="w-7/12 mt-30 pb-32 lg:mt-48 xl:mt-64" perPage="1">
           <slide>
             <h1
-              class="druk-font lg:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
+              class="druk-font text-4xl md:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
             >
               “El mejor lugar para degustar en familia y amigos!”
             </h1>
-            <p class="text-center xl:mb-10">
+            <p class="text-center text-xl md:text-base xl:text-3xl xl:mb-10">
               Es el mejor lugar al que he venido con mi familia, la comida es
               rica, sirven rápido y te atienden de la mejor manera.
             </p>
           </slide>
           <slide>
             <h1
-              class="druk-font lg:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
+              class="druk-font text-4xl md:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
             >
               “El mejor lugar para degustar en familia y amigos!”
             </h1>
-            <p class="text-center xl:mb-10">
+            <p class="text-center text-xl md:text-base xl:text-3xl xl:mb-10">
               Es el mejor lugar al que he venido con mi familia, la comida es
               rica, sirven rápido y te atienden de la mejor manera.
             </p>
           </slide>
           <slide>
             <h1
-              class="druk-font lg:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
+              class="druk-font text-4xl md:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
             >
               “El mejor lugar para degustar en familia y amigos!”
             </h1>
-            <p class="text-center xl:mb-10">
+            <p class="text-center text-xl md:text-base xl:text-3xl xl:mb-10">
               Es el mejor lugar al que he venido con mi familia, la comida es
               rica, sirven rápido y te atienden de la mejor manera.
             </p>
           </slide>
           <slide>
             <h1
-              class="druk-font lg:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
+              class="druk-font text-4xl md:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-48 text-center"
             >
               “El mejor lugar para degustar en familia y amigos!”
             </h1>
-            <p class="text-center xl:mb-10">
+            <p class="text-center text-xl md:text-base xl:text-3xl xl:mb-10">
               Es el mejor lugar al que he venido con mi familia, la comida es
               rica, sirven rápido y te atienden de la mejor manera.
             </p>
@@ -308,18 +378,179 @@
       </div>
       <div
         id="contact-us"
-        class="pb-64 w-full flex flex-wrap mb-64 justify-center bg-black z-10"
+        class="w-full flex flex-wrap justify-center bg-black z-10 pb-64"
       >
-        <div class="w-2/4">
+        <div
+          class="w-10/12 lg:w-3/4 xl:w-2/4 flex flex-wrap justify-center pb-24"
+        >
           <h1
-            class="druk-font lg:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-40 text-center text-white"
+            class="druk-font text-4xl lg:text-2xl xl:text-5xl mb-4 mt-20 xl:mt-40 text-center text-white"
           >
             Cuentanos tu experiencia
           </h1>
-          <h3 class="text-center text-white lg:text-3xl xl:text-5x">
+          <h3 class="text-center text-white px-12 text-xl xl:text-3xl mb-5">
             Don't miss out on our great offers & Receive deals from all our top
             restaurants via e-mail.
           </h3>
+          <div class="w-full lg:w-2/5">
+            <label class="text-yellow block mb-1">Nombre y Apellido</label>
+            <input
+              type="text"
+              placeholder="John Doe"
+              class="w-full lg:w-10/12 text-white bg-black border border-yellow rounded text-base py-2 pl-4 mr-8 mb-5"
+            />
+            <label class="text-white block mb-1">Correo electrónico</label>
+            <input
+              type="text"
+              placeholder="j.doe@correo.com"
+              class="w-full lg:w-10/12 text-white bg-black border border-white rounded text-base py-2 pl-4 mb-5 lg:mb-0"
+            />
+          </div>
+          <div class="w-full lg:w-3/5">
+            <label class="text-white block mb-1">Mensaje</label>
+            <textarea
+              placeholder="El dia de ahora mi experiencia fue..."
+              rows="3"
+              class="w-full text-xl border border-white rounded text-white bg-black pl-4 pt-3 pb-6"
+            ></textarea>
+          </div>
+          <div class="w-full flex justify-center lg:justify-end mt-5">
+            <button
+              class="font-bold bg-yellow p-3 xl:p-4 rounded text-base xl:text-lg"
+            >
+              Enviar comentarios
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="benefits" class="w-full flex flex-wrap justify-center mb-20">
+        <div class="w-full lg:w-4/12">
+          <img
+            class="lg:absolute w-10/12 md:w-full ml-32 -mt-64  lg:-mt-20 lg:-ml-24 xl:-mt-32 lg:w-9/12 xl:w-7/12"
+            src="@/assets/images/onboarding.png"
+            alt="onboarding"
+          />
+        </div>
+        <div class="w-full lg:w-6/12">
+          <h1
+            class="druk-font text-3xl lg:text-2xl xl:text-5xl mb-16 lg:mb-8 -mt-20 lg:mt-12 xl:mb-10 xl:mt-20 text-center"
+          >
+            Obten más beneficios
+            <span class="block"> Descarga nuestra App</span>
+          </h1>
+          <div class="hidden md:block absolute w-full lg:w-1/2">
+            <div class="flex">
+              <div class="w-5/12 flex justify-center">
+                <img
+                  class="mt-3 ml-32 w-3/4 xl:ml-30 xl:w-1/2 -z-1"
+                  src="@/assets/svg/yellow-arrow.svg"
+                />
+              </div>
+              <div class="w-5/12 flex justify-center">
+                <img
+                  class="mt-3 ml-32 w-3/4 xl:w-1/2 flip -z-1"
+                  src="@/assets/svg/yellow-arrow.svg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="w-full flex flex-wrap justify-center">
+            <div class="md:w-1/2 text-center px-4 xl:px-12 xl:mb-8">
+              <div
+                class="bg-yellow rounded-full h-12 w-12 flex items-center justify-center mx-auto mb-5"
+              >
+                <p class="text-white robot-font font-bold">01</p>
+              </div>
+              <h3 class="robot-font font-bold text-3xl md:text-lg xl:text-2xl mb-4">
+                Solicita rápido
+              </h3>
+              <p
+                class="text-black robot-font text-xl lg:text-sm xl:text-xl mb-4 leading-tight px-24 md:px-0"
+              >
+                Curabitur in eleifend turpis, id vehicula odio. Donec pulvinar
+                tellus eget magna aliquet ultricies.
+              </p>
+            </div>
+
+            <div class="md:w-1/2 text-center px-4 xl:px-12 xl:mb-8">
+              <div
+                class="bg-yellow rounded-full h-12 w-12 flex items-center justify-center mx-auto mb-5"
+              >
+                <p class="text-white robot-font font-bold">02</p>
+              </div>
+              <h3 class="robot-font font-bold text-3xl md:text-lg xl:text-2xl mb-4">
+                Fácil de Usar
+              </h3>
+              <p
+                class="text-black robot-font text-xl lg:text-sm xl:text-xl mb-4 leading-tight px-24 md:px-0"
+              >
+                Orci varius natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus mus.
+              </p>
+            </div>
+
+            <div class="md:w-1/2 text-center px-4 xl:px-12 xl:mb-8 mt-8">
+              <div
+                class="bg-yellow rounded-full h-12 w-12 flex items-center justify-center mx-auto mb-5"
+              >
+                <p class="text-white robot-font font-bold">03</p>
+              </div>
+              <h3 class="robot-font font-bold text-3xl md:text-lg xl:text-2xl mb-4">
+                Promociones especiales
+              </h3>
+              <p
+                class="text-black robot-font text-xl lg:text-sm xl:text-xl mb-4 leading-tight px-24 md:px-0"
+              >
+                Curabitur in eleifend turpis, id vehicula odio. Donec pulvinar
+                tellus eget magna aliquet ultricies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer" class="w-full justify-center">
+        <div class="w-full flex flex-wrap justify-between mb-8">
+          <div class="w-full md:w-1/4 lg:ml-16">
+            <p class="text-4xl md:text-2xl xl:text-4xl druk-font text-center mb-5 md:mb-0">
+              Foodies
+            </p>
+          </div>
+          <div class="w-full md:w-auto flex justify-center md:justify-end">
+            <img
+              class="mr-3 w-1/4 lg:ml-32 xl:w-auto"
+              src="@/assets/images/app-store.png"
+              alt="app-store"
+            />
+            <img
+              class="w-1/4 xl:w-auto xl:mr-32 md:mr-10 lg:mr-10"
+              src="@/assets/images/play-store.png"
+              alt="play-store"
+            />
+          </div>
+        </div>
+        <div class="w-full flex justify-center">
+          <img class="w-11/12" src="@/assets/svg/yellow-line.svg" />
+        </div>
+        <div class="w-full flex flex-wrap lg:justify-center mt-5">
+          <a href="" class="text-gray text-base lg:text-sm w-full md:w-4/12 lg:w-2/12 lg:py-0 lg:mb-6 text-xs py-4 xl:text-base text-center"
+            >Conoce nuestras sucursales</a
+          >
+          <a href="" class="text-gray text-base lg:text-sm w-full md:w-4/12 lg:w-2/12 lg:py-0 lg:mb-6 text-xs py-4 xl:text-base text-center"
+            >Acerca de</a
+          >
+          <a href="" class="text-gray text-base lg:text-sm w-full md:w-4/12 lg:w-2/12 lg:py-0 lg:mb-6 text-xs py-4 xl:text-base text-center"
+            >Conoce nuestras sucursales</a
+          >
+          <a
+            href=""
+            class="text-gray text-base lg:text-sm w-full md:w-4/12 lg:w-2/12 lg:py-0 lg:mb-6 text-xs py-4 xl:text-base text-center"
+            >¿Qué hablan de nosotros?</a
+          >
+          <a
+            href=""
+            class="text-gray text-base lg:text-sm w-full md:w-4/12 lg:w-2/12 lg:py-0 lg:mb-6 text-xs py-4 xl:text-base text-center"
+            >Contáctanos</a
+          >
         </div>
       </div>
     </div>
@@ -336,6 +567,7 @@ export default {
   },
   data: () => ({
     isPickUpActive: true,
+    sidebar: false,
     hovers: {
       pickup: false,
       delivery: false
@@ -368,24 +600,18 @@ export default {
   }
 }
 
-.btn {
-  cursor: pointer;
+.drop-enter-active {
+  animation: dowm-in 0.5s;
 }
-
-.border-gray {
-  border: solid 1px #c4c4c4;
+.drop-leave-active {
+  animation: dowm-in 0.5s reverse;
 }
-
-.rotate180 {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  right: 0;
-}
-
-#ketchup {
-  right: 0;
+@keyframes dowm-in {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 </style>

@@ -1,9 +1,16 @@
 @import url("https://fonts.cdnfonts.com/css/syne");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 @font-face {
     font-family: "Druk Text Wide";
     src: url("//db.onlinewebfonts.com/t/3724259186746d86859fbb0fde0fa44a.woff2") format("woff2");
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .noto-sans-font {
@@ -20,6 +27,10 @@
     font-family: Druk Text Wide;
     font-style: normal;
     font-weight: bold;
+}
+
+.robot-font {
+    font-family: "Roboto", sans-serif;
 }
 
 .title-size {
@@ -42,10 +53,54 @@ p {
     top: 0;
 }
 
+@media (max-width: 640px) {
+    #yellow-vector {
+        width: 100%;
+    }
+
+    .title-size {
+        font-size: 3em;
+    }
+
+    #yellow-lines-vector {
+        display: none;
+    }
+}
+
 .dark-400 {
     background-color: #69707a;
 }
 
 input:focus {
     outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.border-gray {
+    border: solid 1px #c4c4c4;
+}
+
+.rotate180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    right: 0;
+}
+
+.flip {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#ketchup {
+    right: 0;
 }
