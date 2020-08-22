@@ -135,17 +135,26 @@
         </div>
       </div>
     </div>
-    <div class="lg:w-7/12">
-      <!-- Map -->
+    <div class="hidden md:block md:mt-5 lg:mt-12 lg:w-7/12">
+      <img class="my-auto" src="@/assets/images/maps.jpeg" alt="" />
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "Locations",
-  props:{
-      isPickUpActive: Boolean,
-      hovers: Object    
-  }
+  data: () => ({
+    isPickUpActive: true,
+    hovers: {
+      pickup: false,
+      delivery: false
+    }
+  }),
+  methods: {
+    toggleLocations(value) {
+      this.isPickUpActive = value
+    }
+  },
+  created() {}
 }
 </script>

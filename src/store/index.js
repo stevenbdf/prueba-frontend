@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     menu: [],
-    categories: []
+    categories: [],
+    locations: []
   },
   mutations: {
     fetchMenu(state, menu) {
@@ -14,14 +15,14 @@ export default new Vuex.Store({
     },
     fetchCategories(state, categories) {
       state.categories = categories
+    },
+    fetchLocations(state, locations) {
+      state.locations = locations
     }
   },
   getters: {
     menu: state => state.menu,
-    categories: state => state.categories
+    categories: state => state.categories,
+    locations: state => state.locations
   },
-  actions: {
-  },
-  modules: {
-  }
 })

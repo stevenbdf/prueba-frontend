@@ -1,14 +1,10 @@
 <template>
   <div class="container">
-    <Navbar id="navbar" :sidebar="sidebar"/>
+    <Navbar id="navbar" :sidebar="sidebar" />
     <div class="content">
       <Header id="header" />
       <About id="about" />
-      <Locations
-        id="locations"
-        :isPickUpActive="isPickUpActive"
-        :hovers="hovers"
-      />
+      <Locations id="locations" />
       <Testimonials id="testimonials" />
       <Contact id="contact" />
       <Benefits id="benefits" />
