@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <img
+      id="black-rectangle"
       class="absolute -z-1 w-full"
       src="@/assets/images/Rectangle2.png"
       alt="hamburger"
@@ -8,11 +9,11 @@
     <Navbar id="navbar" :sidebar="sidebar" />
     <div class="content">
       <HeaderMenu id="headerMenu" />
-      <div class="w-full flex flex-wrap mb-8">
-        <div class="w-4/12 flex justify-center">
+      <div class="w-full flex flex-wrap mb-8 justify-center">
+        <div class="w-full md:w-9/12 lg:w-4/12 flex justify-center mb-4">
           <div class="w-3/4 flex border-gray rounded-md">
             <svg
-              class="my-auto mr-4 w-5 xl:w-8"
+              class="my-auto ml-3 mr-4 w-5 xl:w-8"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +41,7 @@
             />
           </div>
         </div>
-        <div class="w-8/12 flex justify-end pt-2 xl:pr-16">
+        <div class="hidden w-full lg:w-8/12 md:flex justify-center lg:justify-end pt-2 xl:pr-16">
           <span class="syne-font xl:text-2xl mr-8">
             Todas
           </span>

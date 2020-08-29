@@ -11,38 +11,35 @@
       <router-link
         class="text-xl lg:mr-12 lg:text-2xl xl:mr-20 xl:text-4xl druk-font"
         to="/#header"
-        >Foodies</router-link
-      >
+      >Foodies</router-link>
       <a
         href="#about"
         class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
-        >Acerca de</a
-      >
+      >Acerca de</a>
       <a
         href="#locations"
         class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
-        >Restaurantes</a
-      >
+      >Restaurantes</a>
       <router-link
         class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
         to="/menu"
-        >Menú</router-link
-      >
+      >Menú</router-link>
       <a
         href="#contact"
         class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font hidden lg:block"
-        >Contáctanos</a
-      >
+      >Contáctanos</a>
       <a
         class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font lg:hidden"
         @click="sidebar = true"
-        ><img
+      >
+        <img
           class="inline right-arrow xl:w-6"
           :class="{
             'invert': $route.name === 'menu',
           }"
           src="@/assets/svg/menu.svg"
-      /></a>
+        />
+      </a>
     </div>
     <transition name="drop">
       <!-- Validar en que ruta esta y cambiar de color -->
@@ -55,36 +52,28 @@
         }"
       >
         <div>
-          <a class="lg:mr-12 lg:text-2xl xl:mr-20 xl:text-4xl druk-font"
-            >Foodies</a
-          >
+          <router-link
+            class="lg:mr-12 lg:text-2xl xl:mr-20 xl:text-4xl druk-font"
+            to="/#header"
+          >Foodies</router-link>
         </div>
         <div>
           <a
             class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
             @click="sidebar = false"
-            >x</a
-          >
+          >x</a>
         </div>
         <div class="w-full">
-          <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
-            >Acerca de</a
-          >
+          <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font">Acerca de</a>
         </div>
         <div class="w-full">
-          <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
-            >Restaurantes</a
-          >
+          <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font">Restaurantes</a>
         </div>
         <div class="w-full">
-          <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
-            >Menú</a
-          >
+          <router-link class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font" to="/menu">Menú</router-link>
         </div>
         <div class="w-full">
-          <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font"
-            >Contáctanos</a
-          >
+          <a class="lg:mx-2 lg:mt-2 xl:mx-6 xl:mt-3 xl:text-2xl syne-font">Contáctanos</a>
         </div>
       </div>
     </transition>
@@ -94,7 +83,7 @@
 export default {
   name: "Navbar",
   props: {
-    sidebar: Boolean
-  }
+    sidebar: Boolean,
+  },
 }
 </script>

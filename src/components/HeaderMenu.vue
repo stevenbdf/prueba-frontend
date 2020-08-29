@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex flex-wrap px-16 mb-32 xl:mb-64 lg:px-16 xl:px-48 flex-col-reverse md:flex-row"
+    class="w-full flex flex-wrap px-16 mb-12 lg:mb-32 xl:mb-64 lg:px-16 xl:px-48 flex-col-reverse md:flex-row"
   >
     <div class="md:w-1/2">
       <h1 class="druk-font title-size text-white lg:mt-10 xl:mt-24">

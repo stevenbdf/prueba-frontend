@@ -53,17 +53,25 @@ p {
     top: 0;
 }
 
+#black-rectangle {
+    height: auto;
+}
+
 @media (max-width: 640px) {
     #yellow-vector {
         width: 100%;
     }
 
     .title-size {
-        font-size: 3em;
+        font-size: 4em;
     }
 
     #yellow-lines-vector {
         display: none;
+    }
+
+    #black-rectangle {
+        height: 122vh;
     }
 }
 
